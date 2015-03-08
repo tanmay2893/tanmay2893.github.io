@@ -35,6 +35,20 @@ var parse=function(s){
 		return ([k,-1]);
 	return ([k,0]);
 }
+function exists(obj, objs)
+    {
+        var objStr = JSON.stringify(obj);
+
+        for(var i=0;i<objs.length; i++)
+        {
+            if(JSON.stringify(objs[i]) == objStr)
+            {
+                return i;
+            }
+        }
+
+        return -1;
+    }
 $(function(){ // on dom ready
 var a='( hh_external & ( ( ( CI_protein  ) )  )    ) | ( ( CI_protein  ) & ! ( PTC_protein  ) ) ';
 var x=parse(a);
@@ -46,7 +60,7 @@ var target='ci';
 var c,d;;
 var l1,l2;
 var link;
-var image;
+var image,search;
 node.push({'data':{'id':target,'faveColor':'#000000','b':0}});
 console.log(x);
 while (x[1]>=0){
@@ -84,36 +98,77 @@ while (x[1]>=0){
 			else if(link==='|'){
 				image='or.jpg';
 			}
-			c=letters.pop();
+			//c=letters.pop();
 			if (l1[0]!=='!'){
 				node.push({'data':{'id':l1,'faveColor':'#000000','b':0}});
-				node.push({'data':{'id':c,'faveColor':'#000000','b':image}});
-				edges.push({'data':{'source':l1,'target':c}});
-				edges.push({'data':{'source':c,'target':target}});
+				search={'data':{'id':target,'faveColor':'#000000','b':0}};
+				index=exists(search,node);
+				//var index=node.indexOf(search);				
+				console.log('2@@@@@@@@@@@@@@@@@@@@@@@@@@@2@@@@@@@@@@@@@@@@@@@@@@@@@@@2');
+				console.log(index);
+				if (index!==-1){
+					console.log('#############################################3');
+					console.log('tanmay');
+					node[index]={'data':{'id':target,'faveColor':'#000000','b':image}};
+				}
+				//node.push({'data':{'id':c,'faveColor':'#000000','b':image}});
+				//node.push({'data':{'id':target,'faveColor':'#000000','b':image}});
+				edges.push({'data':{'source':l1,'target':target}});
+				//edges.push({'data':{'source':c,'target':target}});
 			}
 			if (l2[0]!=='!'){
 				node.push({'data':{'id':l2,'faveColor':'#000000','b':0}});
-				node.push({'data':{'id':c,'faveColor':'#000000','b':image}});
-				edges.push({'data':{'source':l2,'target':c}});
-				edges.push({'data':{'source':c,'target':target}});
+				search={'data':{'id':target,'faveColor':'#000000','b':0}};
+				var index=exists(search,node);
+				console.log('2@@@@@@@@@@@@@@@@@@@@@@@@@@@2@@@@@@@@@@@@@@@@@@@@@@@@@@@2');
+				console.log(index);
+				if (index!==-1){
+					console.log('#############################################3');
+					console.log('tanmay');
+					node[index]={'data':{'id':target,'faveColor':'#000000','b':image}};
+				}
+				//node.push({'data':{'id':c,'faveColor':'#000000','b':image}});
+				//node.push({'data':{'id':target,'faveColor':'#000000','b':image}});
+				edges.push({'data':{'source':l2,'target':target}});
+				//edges.push({'data':{'source':c,'target':target}});
 			}
 			if (l1[0]==='!'){
 				d=letters.pop();
-				node.push({'data':{'id':c,'faveColor':'#000000','b':image}});
+				//node.push({'data':{'id':c,'faveColor':'#000000','b':image}});
+				search={'data':{'id':target,'faveColor':'#000000','b':0}};
+				var index=exists(search,node);
+				console.log('2@@@@@@@@@@@@@@@@@@@@@@@@@@@2@@@@@@@@@@@@@@@@@@@@@@@@@@@2');
+				console.log(index);
+				if (index!==-1){
+					console.log('#############################################3');
+					console.log('tanmay');
+					node[index]={'data':{'id':target,'faveColor':'#000000','b':image}};
+				}
+				//node.push({'data':{'id':target,'faveColor':'#000000','b':image}});
 				node.push({'data':{'id':d,'faveColor':'#000000','b':'not-image.png'}});
 				node.push({'data':{'id':l1.substring(1,l1.length),'faveColor':'#000000','b':0}});
 				edges.push({'data':{'source':l1.substring(1,l1.length),'target':d}});
-				edges.push({'data':{'source':d,'target':c}});
-				edges.push({'data':{'source':c,'target':target}});
+				edges.push({'data':{'source':d,'target':target}});
+				//edges.push({'data':{'source':c,'target':target}});
 			}
 			if (l2[0]==='!'){
 				d=letters.pop();
-				node.push({'data':{'id':c,'faveColor':'#000000','b':image}});
+				//node.push({'data':{'id':c,'faveColor':'#000000','b':image}});
+				search={'data':{'id':target,'faveColor':'#000000','b':0}};
+				var index=exists(search,node);
+				console.log('2@@@@@@@@@@@@@@@@@@@@@@@@@@@2@@@@@@@@@@@@@@@@@@@@@@@@@@@2');
+				console.log(index);
+				if (index!==-1){
+					console.log('#############################################3');
+					console.log('tanmay');
+					node[index]={'data':{'id':target,'faveColor':'#000000','b':image}};
+				}
+				//node.push({'data':{'id':target,'faveColor':'#000000','b':image}});
 				node.push({'data':{'id':d,'faveColor':'#000000','b':'not-image.jpg'}});
 				node.push({'data':{'id':l2.substring(1,l2.length),'faveColor':'#000000','b':0}});
 				edges.push({'data':{'source':l2.substring(1,l2.length),'target':d}});
-				edges.push({'data':{'source':d,'target':c}});
-				edges.push({'data':{'source':c,'target':target}});
+				edges.push({'data':{'source':d,'target':target}});
+				//edges.push({'data':{'source':c,'target':target}});
 			}
 			}
 			
