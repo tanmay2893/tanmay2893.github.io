@@ -50,13 +50,14 @@ function exists(obj, objs)
         return -1;
     }
 $(function(){ // on dom ready
-var a='( hh_external & ( ( ( CI_protein  ) )  )    ) | ( ( CI_protein  ) & ! ( PTC_protein  ) ) ';
+var g=[{"species":"ci","inputSpecies":["EN_protein"],"expression":"! ( ( EN_protein ) )"},{"species":"CI_protein","inputSpecies":["ci"],"expression":"( ci ) "},{"species":"CIA","inputSpecies":["PTC_protein","hh_external","CI_protein"],"expression":"( hh_external & ( ( ( CI_protein  ) )  )    ) | ( ( CI_protein  ) & ! ( PTC_protein  ) ) "},{"species":"CIR","inputSpecies":["PTC_protein","hh_external","CI_protein"],"expression":"( ( CI_protein & ( ( ( PTC_protein  ) )  )     ) & ! ( hh_external  ) ) "},{"species":"en","inputSpecies":["SLP","WG_external"],"expression":"( ( WG_external  ) & ! ( SLP  ) ) "},{"species":"EN_protein","inputSpecies":["en"],"expression":"( en ) "},{"species":"hh","inputSpecies":["CIR","EN_protein"],"expression":"( ( EN_protein  ) & ! ( CIR  ) ) "},{"species":"HH_protein","inputSpecies":["hh"],"expression":"( hh ) "},{"species":"PH","inputSpecies":["PTC_protein","hh_external"],"expression":"( PTC_protein & ( ( ( hh_external  ) )  )    ) "},{"species":"ptc","inputSpecies":["CIR","CIA","EN_protein"],"expression":"( ( CIA  ) & ! ( EN_protein & ( ( ( CIR  ) )  )     ) ) "},{"species":"PTC_protein","inputSpecies":["ptc","PTC_protein","hh_external"],"expression":"( ( PTC_protein  ) & ! ( hh_external  ) ) | ( ptc ) "},{"species":"SMO","inputSpecies":["PTC_protein","hh_external"],"expression":"( hh_external ) "},{"species":"wg","inputSpecies":["SLP","wg","CIR","CIA"],"expression":"( ( wg & ( ( ( CIA | SLP ) )  )     ) & ! ( CIR  ) ) | ( ( CIA & ( ( ( SLP  ) )  )     ) & ! ( CIR  ) ) "},{"species":"WG_protein","inputSpecies":["wg"],"expression":"( wg ) "}];
+var a=g[2].expression;
 var x=parse(a);
 var letters=['a','b','c','d','e','f','g'];
 var nodes=[];
 var edges=[];
 var node=[];
-var target='ci';
+var target=g[2].species;
 var c,d;;
 var l1,l2;
 var link;
