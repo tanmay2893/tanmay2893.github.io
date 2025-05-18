@@ -1,31 +1,1857 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tanmay Kulshrestha | Data Scientist</title>
-    <meta name="description" content="Tanmay Kulshrestha - Data Scientist with 6+ years of experience in genomics, logistics & trading" />
-    <meta name="author" content="Tanmay Kulshrestha" />
-
-    <meta property="og:title" content="Tanmay Kulshrestha | Data Scientist" />
-    <meta property="og:description" content="Data Scientist with 6+ years of experience building ML systems in genomics, logistics & trading" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tanmay Kulshrestha | Data Scientist</title>
+  <meta name="description" content="Tanmay Kulshrestha - Data Scientist with 6+ years of experience in genomics, logistics & trading">
+  <meta name="author" content="Tanmay Kulshrestha">
+  
+  <!-- Open Graph / Meta Tags -->
+  <meta property="og:title" content="Tanmay Kulshrestha | Data Scientist">
+  <meta property="og:description" content="Data Scientist with 6+ years of experience building ML systems in genomics, logistics & trading">
+  <meta property="og:type" content="website">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    /* Base Styles */
+    :root {
+      --primary: #3b82f6;
+      --primary-dark: #2563eb;
+      --secondary: #64748b;
+      --background: #f8fafc;
+      --foreground: #0f172a;
+      --muted: #f1f5f9;
+      --muted-foreground: #64748b;
+      --card: #ffffff;
+      --card-foreground: #0f172a;
+      --border: #e2e8f0;
+      --accent: #8b5cf6;
+      --radius: 0.5rem;
+    }
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  </head>
-
-  <body>
-    <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary: #3b82f6;
+        --primary-dark: #2563eb;
+        --secondary: #94a3b8;
+        --background: #0f172a;
+        --foreground: #f8fafc;
+        --muted: #1e293b;
+        --muted-foreground: #94a3b8;
+        --card: #1e293b;
+        --card-foreground: #f8fafc;
+        --border: #334155;
+        --accent: #8b5cf6;
+      }
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--background);
+      color: var(--foreground);
+      line-height: 1.6;
+    }
+    
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    
+    /* Utility Classes */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    
+    .section {
+      padding: 5rem 0;
+    }
+    
+    .section:nth-child(even) {
+      background-color: var(--muted);
+    }
+    
+    .section-title {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      width: 50%;
+      height: 4px;
+      background-color: var(--primary);
+      border-radius: 2px;
+    }
+    
+    /* Button Styles */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--primary);
+      color: white;
+      border-radius: var(--radius);
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+      background-color: var(--primary-dark);
+    }
+    
+    .btn-secondary {
+      background-color: var(--secondary);
+    }
+    
+    .btn-secondary:hover {
+      background-color: var(--muted-foreground);
+    }
+    
+    /* Header/Navbar */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1rem 0;
+      transition: all 0.3s ease;
+    }
+    
+    .header.scrolled {
+      background-color: var(--background);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 0.5rem 0;
+    }
+    
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo span {
+      color: var(--primary);
+    }
+    
+    .nav-menu {
+      display: none;
+    }
+    
+    .nav-menu.show {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: var(--background);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      padding: 1rem 0;
+    }
+    
+    .nav-item {
+      padding: 0.75rem 1.5rem;
+    }
+    
+    .nav-link {
+      color: var(--foreground);
+      transition: color 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      color: var(--primary);
+    }
+    
+    .mobile-menu-btn {
+      background: none;
+      border: none;
+      color: var(--foreground);
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: block;
+    }
+    
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 4rem;
+    }
+    
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .hero-subtitle {
+      color: var(--primary);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    
+    .hero-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    
+    .hero-title span {
+      color: var(--primary);
+    }
+    
+    .hero-description {
+      font-size: 1.1rem;
+      color: var(--secondary);
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+    
+    .hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .social-link {
+      color: var(--foreground);
+      transition: color 0.3s ease;
+    }
+    
+    .social-link:hover {
+      color: var(--primary);
+    }
+    
+    .profile-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .profile-circle {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 4px solid var(--primary);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    
+    /* Experience Section */
+    .timeline {
+      position: relative;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 12px;
+      width: 2px;
+      background-color: var(--border);
+    }
+    
+    .timeline-item {
+      position: relative;
+      padding-left: 40px;
+      margin-bottom: 2rem;
+    }
+    
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+    
+    .timeline-dot {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background-color: var(--primary);
+      border: 4px solid var(--background);
+    }
+    
+    .timeline-card {
+      background-color: var(--card);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
+    .timeline-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+    }
+    
+    .timeline-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    
+    .timeline-date {
+      display: flex;
+      align-items: center;
+      color: var(--muted-foreground);
+      font-size: 0.875rem;
+    }
+    
+    .timeline-company {
+      color: var(--primary);
+      font-weight: 500;
+    }
+    
+    .timeline-location {
+      color: var(--muted-foreground);
+      font-size: 0.875rem;
+    }
+    
+    .timeline-achievements {
+      margin-top: 1rem;
+      list-style-position: inside;
+    }
+    
+    .timeline-achievements li {
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+    
+    /* Skills Section */
+    .skills-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    .skill-category {
+      background-color: var(--card);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
+    .skill-category h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .skill-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .skill-item {
+      width: 100%;
+    }
+    
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.25rem;
+    }
+    
+    .skill-name {
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+    
+    .skill-level {
+      font-size: 0.75rem;
+      color: var(--muted-foreground);
+    }
+    
+    .skill-bar-bg {
+      height: 8px;
+      background-color: var(--muted);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    
+    .skill-bar {
+      height: 100%;
+      background-color: var(--primary);
+      border-radius: 4px;
+      width: 0;
+      transition: width 1s ease-in-out;
+    }
+    
+    /* Projects Section */
+    .filter-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .filter-btn {
+      padding: 0.5rem 1rem;
+      background-color: var(--card);
+      border: none;
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .filter-btn:hover {
+      background-color: var(--muted);
+    }
+    
+    .filter-btn.active {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .project-card {
+      background-color: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .project-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .project-category {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .project-category-text {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted-foreground);
+    }
+    
+    .project-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .project-description {
+      color: var(--muted-foreground);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    
+    .project-tag {
+      padding: 0.25rem 0.5rem;
+      background-color: var(--muted);
+      border-radius: var(--radius);
+      font-size: 0.75rem;
+    }
+    
+    /* Education Section */
+    .education-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    .education-card {
+      background-color: var(--card);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
+    .education-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .education-icon {
+      color: var(--primary);
+    }
+    
+    .education-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    
+    .education-school {
+      color: var(--primary);
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+    
+    .education-degree {
+      font-weight: 500;
+    }
+    
+    .education-date {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--muted-foreground);
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+    }
+    
+    .education-location {
+      color: var(--muted-foreground);
+      font-size: 0.875rem;
+    }
+    
+    .achievement-title {
+      font-weight: 500;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .achievement-list {
+      list-style-position: inside;
+    }
+    
+    .achievement-list li {
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+    
+    .course-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    
+    .course-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 0.75rem;
+      background-color: var(--muted);
+      border-radius: var(--radius);
+      font-size: 0.75rem;
+    }
+    
+    .course-tag::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--primary);
+      margin-right: 0.5rem;
+    }
+    
+    .internship {
+      margin-top: 1rem;
+    }
+    
+    .internship-title {
+      color: var(--primary);
+      font-weight: 500;
+      font-size: 1rem;
+    }
+    
+    .internship-role {
+      font-size: 0.9rem;
+    }
+    
+    /* Publications Section */
+    .publications-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .publication-card {
+      background-color: var(--card);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+    
+    .publication-card:hover {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .publication-content {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    
+    .publication-icon {
+      color: var(--primary);
+      font-size: 1.25rem;
+    }
+    
+    .publication-title {
+      font-weight: 500;
+    }
+    
+    .publication-description {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--muted-foreground);
+    }
+    
+    /* Contact Section */
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    .contact-info {
+      margin-bottom: 2rem;
+    }
+    
+    .contact-text {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .contact-icon {
+      color: var(--primary);
+    }
+    
+    .contact-link {
+      color: var(--foreground);
+      transition: color 0.3s ease;
+    }
+    
+    .contact-link:hover {
+      color: var(--primary);
+    }
+    
+    .contact-form {
+      background-color: var(--card);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background-color: var(--background);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .form-input:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+    }
+    
+    .form-textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .form-submit {
+      width: 100%;
+    }
+    
+    /* Footer */
+    .footer {
+      padding: 2rem 0;
+      background-color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+    
+    .footer-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .footer-logo {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .footer-text {
+      color: var(--muted-foreground);
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-copyright {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+    }
+    
+    /* Responsive Design */
+    @media (min-width: 640px) {
+      .hero-title {
+        font-size: 3rem;
+      }
+      
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .education-grid,
+      .contact-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (min-width: 768px) {
+      .timeline::before {
+        left: 50%;
+      }
+      
+      .timeline-item {
+        padding-left: 0;
+        width: 50%;
+        margin-left: 0;
+        margin-right: 0;
+      }
+      
+      .timeline-item:nth-child(odd) {
+        padding-right: 2rem;
+        text-align: right;
+      }
+      
+      .timeline-item:nth-child(even) {
+        margin-left: 50%;
+        padding-left: 2rem;
+      }
+      
+      .timeline-dot {
+        left: auto;
+        right: -12.5px;
+      }
+      
+      .timeline-item:nth-child(even) .timeline-dot {
+        right: auto;
+        left: -12.5px;
+      }
+      
+      .skills-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .mobile-menu-btn {
+        display: none;
+      }
+      
+      .nav-menu {
+        display: flex;
+        flex-direction: row;
+        gap: 1.5rem;
+        position: static;
+        box-shadow: none;
+        padding: 0;
+      }
+      
+      .nav-item {
+        padding: 0;
+      }
+      
+      .hero-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .hero-text {
+        order: 1;
+        width: 60%;
+      }
+      
+      .profile-image {
+        order: 2;
+        width: 40%;
+      }
+      
+      .skills-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .profile-circle {
+        width: 250px;
+        height: 250px;
+      }
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animate-fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    
+    .animate-fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .animate-scale-in {
+      animation: scaleIn 0.5s ease forwards;
+    }
+    
+    @keyframes scaleIn {
+      from {
+        transform: scale(0.9);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header id="header" class="header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="#home" class="logo">
+          <span>&lt;</span> Tanmay Kulshrestha <span>/&gt;</span>
+        </a>
+        
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
+          <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+          <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+          <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
+          <li class="nav-item"><a href="#publications" class="nav-link">Publications</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Hero Section -->
+  <section id="home" class="hero section">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text animate-fade-in">
+          <p class="hero-subtitle">Hello, I'm</p>
+          <h1 class="hero-title">Tanmay <span>Kulshrestha</span></h1>
+          <h2 class="hero-role" style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--secondary);">Data Scientist</h2>
+          <p class="hero-description">
+            6+ years of experience building machine learning systems in genomics, logistics & trading. 
+            Strong in time-series modeling, full-stack deployment, and research translation.
+          </p>
+          
+          <div class="hero-btns">
+            <a href="mailto:tanmay2893@gmail.com" class="btn">
+              <i class="fa-solid fa-envelope"></i> Get in Touch
+            </a>
+            <a href="https://github.com/tanmay2893" target="_blank" class="btn btn-secondary">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
+          </div>
+          
+          <div class="social-links">
+            <a href="https://github.com/tanmay2893" target="_blank" class="social-link" aria-label="GitHub">
+              <i class="fa-brands fa-github fa-lg"></i>
+            </a>
+            <a href="https://linkedin.com/in/tanmaykulshrestha" target="_blank" class="social-link" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin fa-lg"></i>
+            </a>
+            <a href="mailto:tanmay2893@gmail.com" class="social-link" aria-label="Email">
+              <i class="fa-solid fa-envelope fa-lg"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="profile-image animate-scale-in">
+          <div class="profile-circle">
+            TK
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Experience Section -->
+  <section id="experience" class="section">
+    <div class="container">
+      <h2 class="section-title">Professional Experience</h2>
+      
+      <div class="timeline">
+        <!-- GIS -->
+        <div class="timeline-item animate-on-scroll">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <h3 class="timeline-title">Machine Learning Specialist (Bioinformatics)</h3>
+              <div class="timeline-date">
+                <i class="fa-solid fa-calendar-days"></i>
+                Jan 2021 - Present
+              </div>
+            </div>
+            <div class="timeline-company">Genome Institute of Singapore (A*STAR)</div>
+            <div class="timeline-location">Singapore</div>
+            <ul class="timeline-achievements">
+              <li>Predicted Responders vs Non-responders for Immunotherapy treatment using EDA, Classification, Graph Attention Network, and CNN.</li>
+              <li>Utilized Transformer model-based embeddings to cluster existing antibodies found in the human body for potential use in drug therapy.</li>
+              <li>Developed a web-based portal to discover plausible targets for cancer drugs using EDA, Regression, Clustering, Statistics, Flask, ReactJS, and Web scraping.</li>
+              <li>Created a web app for deploying tumor purity prediction research as SaaS using Docker, ReactJS, Flask, and Python.</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Ecom Express -->
+        <div class="timeline-item animate-on-scroll">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <h3 class="timeline-title">Associate Data Scientist</h3>
+              <div class="timeline-date">
+                <i class="fa-solid fa-calendar-days"></i>
+                July 2019 - December 2020
+              </div>
+            </div>
+            <div class="timeline-company">Ecom Express</div>
+            <div class="timeline-location">Gurgaon, India</div>
+            <ul class="timeline-achievements">
+              <li>Reduced fraudulent charges claims for package cost by around 11% with Size/Weight Prediction using Regression Trees, LSTM, and ElasticSearch.</li>
+              <li>Implemented classification of dangerous/non-dangerous goods required for air transport of shipments using ElasticSearch, NLP, and Classification.</li>
+              <li>Developed item taxonomy classification using item descriptions for downstream tasks with NLP and ElasticSearch.</li>
+              <li>Created systems for masking confidential details from ID cards using OCR, Image Processing, and Object Detection.</li>
+              <li>Built prediction API for box vs non-box packages which impacted logistics costs using Deep Learning and CNNs.</li>
+              <li>Provided key insights for network redesign, decreasing network cost by around 8% theoretically.</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- LexentBio -->
+        <div class="timeline-item animate-on-scroll">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <h3 class="timeline-title">Software Engineer (Machine Learning)</h3>
+              <div class="timeline-date">
+                <i class="fa-solid fa-calendar-days"></i>
+                May 2018 - April 2019
+              </div>
+            </div>
+            <div class="timeline-company">LexentBio Inc.</div>
+            <div class="timeline-location">Hyderabad, India</div>
+            <ul class="timeline-achievements">
+              <li>Developed Cancer Progression classifier</li>
+              <li>Created Data Analytics pipelines</li>
+              <li>Built Data engineering framework using GCP</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- CGI -->
+        <div class="timeline-item animate-on-scroll">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <h3 class="timeline-title">Software Engineer</h3>
+              <div class="timeline-date">
+                <i class="fa-solid fa-calendar-days"></i>
+                November 2017 - May 2018
+              </div>
+            </div>
+            <div class="timeline-company">CGI</div>
+            <div class="timeline-location">Bengaluru, India</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Skills Section -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      
+      <div class="skills-container">
+        <!-- Programming Skills -->
+        <div class="skill-category animate-on-scroll">
+          <h3>Programming</h3>
+          <div class="skill-list">
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Python</span>
+                <span class="skill-level">95%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar" data-width="95%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Luigi</span>
+                <span class="skill-level">90%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar" data-width="90%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Git</span>
+                <span class="skill-level">85%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar" data-width="85%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Scikit Learn</span>
+                <span class="skill-level">90%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar" data-width="90%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Keras</span>
+                <span class="skill-level">85%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar" data-width="85%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">OpenCV</span>
+                <span class="skill-level">80%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar" data-width="80%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Pandas</span>
+                <span class="skill-level">95%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar" data-width="95%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">NLP</span>
+                <span class="skill-level">85%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar" data-width="85%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Learning Skills -->
+        <div class="skill-category animate-on-scroll">
+          <h3>Learning</h3>
+          <div class="skill-list">
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Tensorflow</span>
+                <span class="skill-level">70%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar" data-width="70%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">PyTorch</span>
+                <span class="skill-level">75%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar" data-width="75%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Docker</span>
+                <span class="skill-level">65%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar" data-width="65%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">ReactJS</span>
+                <span class="skill-level">60%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar" data-width="60%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">JavaScript</span>
+                <span class="skill-level">65%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar" data-width="65%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">SQL</span>
+                <span class="skill-level">70%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar" data-width="70%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Huggingface</span>
+                <span class="skill-level">75%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar" data-width="75%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Familiar Skills -->
+        <div class="skill-category animate-on-scroll">
+          <h3>Familiar</h3>
+          <div class="skill-list">
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">NodeJs</span>
+                <span class="skill-level">50%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar" data-width="50%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">MongoDB</span>
+                <span class="skill-level">55%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar" data-width="55%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">PySpark</span>
+                <span class="skill-level">60%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar" data-width="60%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">AWS EC2, EMR</span>
+                <span class="skill-level">55%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar" data-width="55%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Elastic Search</span>
+                <span class="skill-level">60%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar" data-width="60%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Langchain</span>
+                <span class="skill-level">65%</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar" data-width="65%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="genomics">Genomics</button>
+        <button class="filter-btn" data-filter="finance">Finance</button>
+        <button class="filter-btn" data-filter="logistics">Logistics</button>
+        <button class="filter-btn" data-filter="hobby">Hobby Projects</button>
+      </div>
+      
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card" data-category="genomics">
+          <div class="project-content">
+            <div class="project-category">
+              <i class="fa-solid fa-dna"></i>
+              <span class="project-category-text">genomics</span>
+            </div>
+            <h3 class="project-title">Immunotherapy Response Prediction</h3>
+            <p class="project-description">
+              Predicting Responders vs Non-responders for Immunotherapy treatment using advanced machine learning techniques.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Graph Attention Network</span>
+              <span class="project-tag">CNN</span>
+              <span class="project-tag">Classification</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 2 -->
+        <div class="project-card" data-category="genomics">
+          <div class="project-content">
+            <div class="project-category">
+              <i class="fa-solid fa-dna"></i>
+              <span class="project-category-text">genomics</span>
+            </div>
+            <h3 class="project-title">Antibody Clustering with Transformers</h3>
+            <p class="project-description">
+              Used Transformer model-based embeddings to cluster antibodies found in the human body for potential drug therapy.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Transformer Models</span>
+              <span class="project-tag">Unsupervised Learning</span>
+              <span class="project-tag">Clustering</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 3 -->
+        <div class="project-card" data-category="genomics">
+          <div class="project-content">
+            <div class="project-category">
+              <i class="fa-solid fa-dna"></i>
+              <span class="project-category-text">genomics</span>
+            </div>
+            <h3 class="project-title">Cancer Therapy Target Discovery Portal</h3>
+            <p class="project-description">
+              A web based portal to discover plausible targets for cancer drugs using various data science techniques.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Flask</span>
+              <span class="project-tag">ReactJS</span>
+              <span class="project-tag">Regression</span>
+              <span class="project-tag">Clustering</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 4 -->
+        <div class="project-card" data-category="genomics">
+          <div class="project-content">
+            <div class="project-category">
+              <i class="fa-solid fa-dna"></i>
+              <span class="project-category-text">genomics</span>
+            </div>
+            <h3 class="project-title">Tumor Purity Prediction Web App</h3>
+            <p class="project-description">
+              Web application for deploying tumor purity prediction research as Software as a Service.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Docker</span>
+              <span class="project-tag">Flask</span>
+              <span class="project-tag">ReactJS</span>
+              <span class="project-tag">Python</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 5 -->
+        <div class="project-card" data-category="finance">
+          <div class="project-content">
+            <div class="project-category">
+              <i class="fa-solid fa-chart-line"></i>
+              <span class="project-category-text">finance</span>
+            </div>
+            <h3 class="project-title">Stock Market Prediction</h3>
+            <p class="project-description">
+              Developed LSTM and Transformer-based models for stock market prediction and backtesting. Achieved ~39% returns in 6 months.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">LSTM</span>
+              <span class="project-tag">Transformers</span>
+              <span class="project-tag">Time-Series Forecasting</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 6 -->
+        <div class="project-card" data-category="finance">
+          <div class="project-content">
+            <div class="project-category">
+              <i class="fa-solid fa-chart-line"></i>
+              <span class="project-category-text">finance</span>
+            </div>
+            <h3 class="project-title">Interactive Trading Dashboard</h3>
+            <p class="project-description">
+              Built interactive trading dashboard (web & app) for real-time testing of trading strategies.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Web Development</span>
+              <span class="project-tag">Real-time Data</span>
+              <span class="project-tag">Visualization</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 7 -->
+        <div class="project-card" data-category="logistics">
+          <div class="project-content">
+            <div class="project-category">
+              <i class="fa-solid fa-truck"></i>
+              <span class="project-category-text">logistics</span>
+            </div>
+            <h3 class="project-title">Package Size/Weight Prediction</h3>
+            <p class="project-description">
+              Reduced fraudulent charges claims for package cost by around 11% using advanced regression techniques.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Regression Trees</span>
+              <span class="project-tag">LSTM</span>
+              <span class="project-tag">ElasticSearch</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 8 -->
+        <div class="project-card" data-category="logistics">
+          <div class="project-content">
+            <div class="project-category">
+              <i class="fa-solid fa-truck"></i>
+              <span class="project-category-text">logistics</span>
+            </div>
+            <h3 class="project-title">Dangerous Goods Classification</h3>
+            <p class="project-description">
+              Classification system for dangerous/non-dangerous goods required for air transport of shipments.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">NLP</span>
+              <span class="project-tag">ElasticSearch</span>
+              <span class="project-tag">Classification</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 9 -->
+        <div class="project-card" data-category="hobby">
+          <div class="project-content">
+            <div class="project-category">
+              <i class="fa-solid fa-code"></i>
+              <span class="project-category-text">hobby</span>
+            </div>
+            <h3 class="project-title">Image Sorting System</h3>
+            <p class="project-description">
+              A hobby project for intelligent sorting of images using computer vision techniques.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Computer Vision</span>
+              <span class="project-tag">Python</span>
+              <span class="project-tag">Clustering</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 10 -->
+        <div class="project-card" data-category="hobby">
+          <div class="project-content">
+            <div class="project-category">
+              <i class="fa-solid fa-code"></i>
+              <span class="project-category-text">hobby</span>
+            </div>
+            <h3 class="project-title">Hindi Poetry Author Attribution</h3>
+            <p class="project-description">
+              NLP based project for author attribution of a shayari (hindi poetry) using Llama2 pretrained model and LoRA.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">NLP</span>
+              <span class="project-tag">Llama2</span>
+              <span class="project-tag">LoRA</span>
+              <span class="project-tag">Fine-tuning</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Education Section -->
+  <section id="education" class="section">
+    <div class="container">
+      <h2 class="section-title">Education & Learning</h2>
+      
+      <div class="education-grid">
+        <div class="education-card">
+          <div class="education-header">
+            <i class="fa-solid fa-graduation-cap education-icon"></i>
+            <h3 class="education-title">Formal Education</h3>
+          </div>
+          
+          <div class="education-school">BITS PILANI</div>
+          <div class="education-degree">M.Sc. (HONS.) BIOLOGICAL SCIENCES AND B.E. (HONS.) MECHANICAL</div>
+          <div class="education-date">
+            <i class="fa-solid fa-calendar-days"></i>
+            2012 - 2017
+          </div>
+          <div class="education-location">Pilani, Rajasthan, India</div>
+          
+          <h4 class="achievement-title">Achievements</h4>
+          <ul class="achievement-list">
+            <li>Participated in BIOMOD held at Wyss Institute, Harvard University in November 2015 and secured silver category</li>
+            <li>Placed in Top 40 (INDIA) in Young Data Scientist Challenge organized by ZS Associates in August 2016</li>
+            <li>4 Bronze medals at Hackerrank</li>
+          </ul>
+        </div>
+        
+        <div class="education-card">
+          <div class="education-header">
+            <i class="fa-solid fa-book education-icon"></i>
+            <h3 class="education-title">Online Learning</h3>
+          </div>
+          
+          <h4>Online Courses & Certifications</h4>
+          <div class="course-list">
+            <span class="course-tag">Python</span>
+            <span class="course-tag">Algorithm</span>
+            <span class="course-tag">Discrete Optimization</span>
+            <span class="course-tag">Machine Learning</span>
+            <span class="course-tag">Deep Learning</span>
+            <span class="course-tag">Basic Generative Adversarial Networks</span>
+            <span class="course-tag">Computer Vision Essentials</span>
+            <span class="course-tag">Sequence models</span>
+            <span class="course-tag">Introduction to ML in production</span>
+            <span class="course-tag">AutoML</span>
+            <span class="course-tag">Google Cloud Big Data and ML</span>
+          </div>
+          
+          <h4 class="achievement-title">Internships</h4>
+          
+          <div class="internship">
+            <div class="internship-title">INDIAN STATISTICAL INSTITUTE</div>
+            <div class="internship-role">SUMMER RESEARCH INTERN</div>
+            <div class="education-date">
+              <i class="fa-solid fa-calendar-days"></i>
+              May 2015 – July 2015
+            </div>
+            <div class="education-location">Kolkata, India</div>
+          </div>
+          
+          <div class="internship">
+            <div class="internship-title">STRAND LIFE SCIENCES</div>
+            <div class="internship-role">SUMMER INTERN</div>
+            <div class="education-date">
+              <i class="fa-solid fa-calendar-days"></i>
+              May 2014 – July 2014
+            </div>
+            <div class="education-location">Bengaluru, India</div>
+            <div class="education-location">Developed an intelligent adaptable quizzing web app for improving employee knowledge.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Publications Section -->
+  <section id="publications" class="section">
+    <div class="container">
+      <h2 class="section-title">Publications</h2>
+      
+      <div class="publications-list">
+        <div class="publication-card">
+          <div class="publication-content">
+            <i class="fa-solid fa-book publication-icon"></i>
+            <div>
+              <h3 class="publication-title">Graph Network-based classification of DNA Structure</h3>
+              <div class="publication-description">
+                Published research contributing to the field of bioinformatics and genomic structural analysis.
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="publication-card">
+          <div class="publication-content">
+            <i class="fa-solid fa-book publication-icon"></i>
+            <div>
+              <h3 class="publication-title">A pan-cancer metabolic atlas of the tumor microenvironment</h3>
+              <div class="publication-description">
+                Published research on metabolic profiling across various cancer types and their microenvironments.
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="publication-card">
+          <div class="publication-content">
+            <i class="fa-solid fa-book publication-icon"></i>
+            <div>
+              <h3 class="publication-title">Accurate pan-cancer tumor purity estimation from gene expression data</h3>
+              <div class="publication-description">
+                Research on developing methodologies for estimating tumor purity from gene expression profiles.
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="publication-card">
+          <div class="publication-content">
+            <i class="fa-solid fa-book publication-icon"></i>
+            <div>
+              <h3 class="publication-title">PUREE: accurate pan-cancer tumor purity estimation from gene expression data</h3>
+              <div class="publication-description">
+                Development of a computational tool (PUREE) for tumor purity estimation from gene expression data.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      
+      <div class="contact-container">
+        <div class="contact-info">
+          <p class="contact-text">
+            Feel free to reach out if you're looking for a data scientist with experience in genomics, logistics, 
+            and trading, or if you want to discuss machine learning, time-series modeling, or research translation.
+          </p>
+          
+          <div class="contact-list">
+            <div class="contact-item">
+              <i class="fa-solid fa-envelope contact-icon"></i>
+              <a href="mailto:tanmay2893@gmail.com" class="contact-link">tanmay2893@gmail.com</a>
+            </div>
+            
+            <div class="contact-item">
+              <i class="fa-solid fa-phone contact-icon"></i>
+              <a href="tel:+6588255843" class="contact-link">+65 8825 5843</a>
+            </div>
+            
+            <div class="contact-item">
+              <i class="fa-brands fa-github contact-icon"></i>
+              <a href="https://github.com/tanmay2893" target="_blank" class="contact-link">github.com/tanmay2893</a>
+            </div>
+            
+            <div class="contact-item">
+              <i class="fa-brands fa-linkedin contact-icon"></i>
+              <a href="https://linkedin.com/in/tanmaykulshrestha" target="_blank" class="contact-link">linkedin.com/in/tanmaykulshrestha</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form">
+          <form id="contact-form">
+            <div class="form-group">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" id="name" class="form-input" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" class="form-input" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message" class="form-label">Message</label>
+              <textarea id="message" class="form-textarea" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn form-submit">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-logo">
+          <span class="text-primary">&lt;</span> Tanmay Kulshrestha <span class="text-primary">/&gt;</span>
+        </div>
+        <p class="footer-text">Data Scientist | Machine Learning Specialist</p>
+        <p class="footer-copyright">&copy; <span id="current-year"></span> Tanmay Kulshrestha. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const navMenu = document.getElementById('nav-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+      const isOpen = navMenu.classList.contains('show');
+      mobileMenuBtn.innerHTML = isOpen ? 
+        '<i class="fa-solid fa-xmark"></i>' : 
+        '<i class="fa-solid fa-bars"></i>';
+    });
+    
+    // Close mobile menu when clicking on a link
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('show');
+        mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+      });
+    });
+    
+    // Header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+    
+    // Animate skill bars on scroll
+    function animateSkillBars() {
+      const skillBars = document.querySelectorAll('.skill-bar');
+      skillBars.forEach(bar => {
+        const width = bar.getAttribute('data-width');
+        bar.style.width = width;
+      });
+    }
+    
+    // Projects filter
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        
+        // Add active class to clicked button
+        button.classList.add('active');
+        
+        const filterValue = button.getAttribute('data-filter');
+        
+        // Filter projects
+        projectCards.forEach(card => {
+          if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+    
+    // Animation on scroll
+    function animateOnScroll() {
+      const elements = document.querySelectorAll('.animate-on-scroll');
+      
+      elements.forEach(element => {
+        const position = element.getBoundingClientRect();
+        
+        // Check if element is in viewport
+        if (position.top < window.innerHeight - 50) {
+          element.classList.add('visible');
+          
+          // Animate skill bars if they're in the element
+          const skillBars = element.querySelectorAll('.skill-bar');
+          skillBars.forEach((bar, index) => {
+            setTimeout(() => {
+              bar.style.width = bar.dataset.width || '0%';
+            }, index * 100);
+          });
+        }
+      });
+    }
+    
+    // Update current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // Contact form submission (can be enhanced with actual form submission)
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Simple form validation
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      
+      if (name && email && message) {
+        alert('Thank you for your message! I will get back to you soon.');
+        contactForm.reset();
+      }
+    });
+    
+    // Initialize animations on load
+    window.addEventListener('load', () => {
+      // Make hero section elements visible
+      document.querySelectorAll('.animate-fade-in').forEach(el => {
+        el.classList.add('visible');
+      });
+      
+      // Initial check for elements in viewport
+      animateOnScroll();
+    });
+    
+    // Check for new elements to animate on scroll
+    window.addEventListener('scroll', animateOnScroll);
+  </script>
+</body>
 </html>
